@@ -1,0 +1,77 @@
+.block {
+    max-width: 100vw;
+    padding: var(--block-padding) 0;
+
+    &:not(.has-sticky) {
+        overflow: hidden;
+    }
+
+    @each $breakpoint in map-keys($block-paddings) {
+        @if $breakpoint == 'xs' {
+            --block-padding: #{map-get($block-paddings, $breakpoint)};
+        } @else {
+            @include media-breakpoint-up($breakpoint) {
+                --block-padding: #{map-get($block-paddings, $breakpoint)};
+            }
+
+            @include media-breakpoint-down($breakpoint) {
+
+                &.has-sticky-#{$breakpoint} {
+                    overflow: hidden;
+                }
+
+                &.short-#{$breakpoint} {
+                    --block-padding: calc(#{map-get($block-paddings, $breakpoint)} / 2);
+                }
+            }
+        }
+    }
+
+    &-header {
+        position: relative;
+        top: calc((var(--block-padding) - .75rem) * -1);
+        height: 0;
+    
+        @include media-breakpoint-up('xl') {
+            top: calc((var(--block-padding) - 1.75rem) * -1);
+        }
+
+        a {
+
+            span {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            &:hover {
+                color: var(--red-hover);
+            }
+        }
+
+        svg {
+            display: inline-block;
+            vertical-align: middle;
+            height: 1.75rem;
+            line-height: 1.4em;
+            margin: -.3em 0 -.3em 4px;
+            width: 1.22em;
+        }
+    }
+}
+
+@import "blocks/intro";
+@import "blocks/video";
+@import "blocks/offices";
+@import "blocks/collage";
+@import "blocks/digits";
+@import "blocks/slider";
+@import "blocks/marquee";
+@import "blocks/industries";
+@import "blocks/projects";
+@import "blocks/history";
+@import "blocks/employees";
+@import "blocks/balls";
+@import "blocks/steps";
+@import "blocks/blog";
+
+@import "blocks/video-btn";

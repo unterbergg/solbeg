@@ -1,0 +1,55 @@
+.swiper {
+    // --swiper-pagination-bullet-horizontal-gap: 8px;
+    // --swiper-pagination-color: var(--red);
+    
+    // &-pagination {
+    //     position: static;
+    //     margin-top: 1.5em;
+    // }
+
+    &-nav {
+        position: absolute;
+        right: 0;
+        font-size: 1.75rem;
+        bottom: 100%;
+        z-index: 1;
+        transform: translate(0, -2.5rem);
+
+        @include media-breakpoint-up('xl') {
+            font-size: 3.5rem;
+            transform: translate(0, -3.75rem);
+        }
+
+        &--prev,
+        &--next {
+            display: flex;
+            cursor: pointer;
+            height: 1em;
+            width: 1em;
+            color: var(--text);
+            @include transition(color, opacity);
+
+            &:hover {
+                color: var(--red-hover);
+            }
+
+            &.swiper-button-disabled {
+                opacity: .2;
+                pointer-events: none;
+                cursor: default;
+            }
+
+            svg {
+                display: block;
+                height: 1em;
+                width: 1em;
+                margin: auto;
+            }
+        }
+
+        &--prev {
+            transform: scale(-1,1);
+            margin-right: 2rem;
+        }
+    }
+}

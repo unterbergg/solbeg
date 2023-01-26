@@ -1,0 +1,17 @@
+@mixin adaptive-font-size($sizes, $breakpoints: $adaptive-font-size-breakpoints) {
+
+    @each $breakpoint in map-keys($breakpoints) {
+
+        @if map-get($sizes, $breakpoint) {
+            $font-size: calc(100vw * map-get($sizes, $breakpoint) / map-get($breakpoints, $breakpoint));
+
+            @if $breakpoint == 'xs' {
+                --font-size: #{$font-size};
+            } @else {
+                @include media-breakpoint-up($breakpoint) {
+                    --font-size: #{$font-size};
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+.offices {
+
+    .swiper {
+
+        &-slide {
+            width: auto;
+            @include media-breakpoint-up('md') {
+                display: flex;
+            }
+        }
+
+        &-wrapper {
+
+            @include media-breakpoint-up('md') {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 52px;
+            }
+
+            @include media-breakpoint-up('lg') {
+                gap: 54px;
+            }
+
+            @include media-breakpoint-up('xl') {
+                gap: 135px;
+            }
+
+            @include media-breakpoint-up('xxl') {
+                gap: 255px;
+            }
+        }
+    }
+
+    &-item {
+        width: 200px;
+
+        @include media-breakpoint-up('md') {
+            width: 100%;
+        }
+
+        figure {
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            margin: 0 0 4px;
+        }
+
+        address {
+            margin-bottom: 1.25rem;
+        }
+
+        a {
+            color: var(--red);
+
+            &:hover {
+                color: vaR(--red-hover);
+            }
+        }
+
+        a[href^='tel:'] {
+            color: inherit;
+            transition: inherit;
+        }
+    }
+}

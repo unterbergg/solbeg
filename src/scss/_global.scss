@@ -1,0 +1,83 @@
+html {
+    font-family: 'Manrope', sans-serif;
+    scroll-behavior: smooth;
+    background-color: var(--bg);
+    box-sizing: border-box;
+    font-size: #{$rem}px;
+    color: var(--text);
+
+    &.loaded {
+        @include transition(background-color, color);
+    }
+}
+
+body {
+    padding-top: 4.375rem;
+
+    @include media-breakpoint-up('sm') {
+        padding-top: 4.75rem;
+    }
+
+    @include media-breakpoint-up('md') {
+        padding-top: 5.875rem;
+    }
+
+    @include media-breakpoint-up('lg') {
+        padding-top: 6.25rem;
+    }
+
+    @include media-breakpoint-up('xl') {
+        padding-top: 8.125rem;
+    }
+}
+
+::selection {
+    opacity: 0;
+    color: white;
+    background: var(--red);
+}
+
+#wpadminbar {
+    position: fixed !important;
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
+    @include transition(color, border-color);
+
+    &:hover {
+        color: var(--red-hover);
+    }
+}
+
+hr {
+    border: none !important;
+    background-color: var(--text);
+    height: 2px;
+    margin: 0;
+    @include transition(background-color);
+}
+
+address {
+    font-style: normal;
+}
+
+figure {
+    margin: 0;
+
+    img {
+        display: block;
+        @include img-fluid();
+    }
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+
+    /* Remove tap highlight for all elements */
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}

@@ -1,0 +1,183 @@
+.intro {
+    padding: 3.25rem 0;
+
+    @include media-breakpoint-up('md') {
+        padding: 5.625rem 0;
+    }
+
+    @include media-breakpoint-up('lg') {
+        padding: 7.5rem 0;
+    }
+
+    @include media-breakpoint-up('xl') {
+        padding: 10rem 0;
+    }
+
+    header {
+        position: relative;
+        /*
+            188 - Pixels from h1 to logo
+            result = 188 - block-padding-top - header-padding-bottom
+        */
+        margin: calc(px2rem(188) - 3.25rem - 1.125rem) 0 0;
+
+        @include media-breakpoint-up('sm') {
+            margin-top: calc(px2rem(254) - 3.25rem - 1.125rem);
+        }
+
+        @include media-breakpoint-up('md') {
+            margin-top: calc(px2rem(332) - 5.625rem - 1.5625rem);
+        }
+
+        @include media-breakpoint-up('lg') {
+            margin-top: calc(px2rem(254) - 7.5rem - 1.5625rem);
+        }
+
+        @include media-breakpoint-up('xl') {
+            margin-top: calc(px2rem(310) - 10rem - 2.5rem);
+        }
+
+        &.short {
+            @include media-breakpoint-down('md') {
+                margin-top: -1.125rem;
+            }
+
+            @include media-breakpoint-between('md', 'lg') {
+                margin-top: -#{calc(1.125rem + 1.5625rem)};
+            }
+        }
+    }
+
+    h1,
+    .h1,
+    h2,
+    .h2 {
+        line-height: 1em;
+    }
+    
+    &-header {
+        position: relative;
+
+        &-start,
+        &-bottom {
+            position: absolute;
+        }
+
+        &-start {
+            left: 0;
+            top: var(--font-size);
+            transform: translate(0, calc(-100% - var(--font-size) * .15));
+        }
+        
+        &-bottom {
+            right: 0;
+            bottom: calc(var(--font-size) * .15);
+
+            @include media-breakpoint-up('xl') {
+                right: 5.625rem;
+            }
+
+            @include media-breakpoint-up('xxl') {
+                right: 9.375rem;
+            }
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .wp-block-image {
+            margin: 0;
+        }
+
+        img {
+            height: 1em;
+            width: auto;
+            margin-right: 1.2ch;
+
+            @include media-breakpoint-up('md') {
+                height: .8em;
+            }
+        }
+
+        .btn {
+            min-width: 200px;
+
+            @include media-breakpoint-up('xl') {
+                min-width: 300px;
+            }
+        }
+    }
+
+    &-menu {
+        position: relative;
+        bottom: calc(1.5rem - 3.25rem);
+
+        @include media-breakpoint-up('md') {
+            bottom: calc(1.5rem - 5.625rem);
+        }
+    
+        @include media-breakpoint-up('lg') {
+            bottom: calc(1.5rem - 7.5rem);
+        }
+    
+        @include media-breakpoint-up('xl') {
+            bottom: calc(2.5rem - 10rem);
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .swiper {
+
+            &-slide {
+                width: auto;
+                margin-right: 2rem;
+    
+                @include media-breakpoint-up('lg') {
+                    margin-right: 3rem;
+                }
+            }
+        }
+
+        a {
+            border-bottom: 2px solid transparent;
+
+            &.active {
+                border-color: var(--red);
+                pointer-events: none;
+            }
+
+            &:hover {
+                color: var(--red-hover);
+            }
+        }
+    }
+
+    .signature {
+        display: block;
+        max-width: 250px;
+    }
+
+    .video-btn {
+
+        @include media-breakpoint-up('md') {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        @include media-breakpoint-up('lg') {
+            right: 4.75rem;
+        }
+
+        @include media-breakpoint-up('xl') {
+            right: 5.625rem;
+        }
+
+        @include media-breakpoint-up('xxl') {
+            right: 9.375rem;
+        }
+    }
+}

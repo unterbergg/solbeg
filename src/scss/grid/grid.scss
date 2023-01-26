@@ -1,0 +1,38 @@
+@import "custom";
+
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+@import "~bootstrap/scss/grid";
+
+@import "~bootstrap/scss/containers";
+
+@import "~bootstrap/scss/utilities/api";
+
+:root {
+    --container-gutter: 1rem;
+
+    @include media-breakpoint-up('md') {
+        --container-gutter: 2rem;
+    }
+
+    @include media-breakpoint-up('lg') {
+        --container-gutter: 2.5rem;
+    }
+
+    @include media-breakpoint-up('xl') {
+        --container-gutter: 3.75rem;
+    }
+}
+
+/* All classes includes 'container' string */
+[class*="container"] {
+    padding-left: var(--container-gutter, 1rem);
+    padding-right: var(--container-gutter, 1rem);
+
+    & [class*="container"] {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

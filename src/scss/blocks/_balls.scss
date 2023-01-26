@@ -1,0 +1,59 @@
+.balls {
+    padding-left: calc(16% / 3);
+
+    .swiper-initialized {
+
+        .swiper-slide {
+            opacity: 0;
+            visibility: hidden;
+            transition: all .2s ease-in-out;
+
+            &-visible {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    .swiper {
+
+        &-slide {
+            max-width: 33.33333%;
+        }
+    }
+
+    &-ball {
+        background-color: var(--bg);
+        border: 2px solid var(--text);
+        border-radius: 50%;
+        width: 116%;
+        margin-left: -16%;
+        @include transition(background-color, border-color);
+
+        svg {
+            display: block;
+            height: auto;
+            width: 100%;
+
+            .swap-color {
+                @include transition(fill);
+            }
+        }
+    }
+}
+
+[data-theme='dark'] {
+    
+    .balls {
+
+        &-ball {
+
+            svg {
+
+                .swap-color {
+                    fill: var(--svg-color);
+                }
+            }
+        }
+    }
+}

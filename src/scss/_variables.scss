@@ -1,0 +1,44 @@
+// 1rem in pixels (used by function px2rem)
+$rem: 16;
+
+/*
+    Block paddings
+*/
+$block-paddings: (
+    xs: 5rem,
+    sm: 5rem,
+    md: 5.625rem,
+    lg: 6.25rem,
+    xl: 10rem,
+    xxl: 10rem
+);
+
+/*
+    Adaptive font size breakpoints
+*/
+$adaptive-font-size-breakpoints: (
+    xs: 320,
+    sm: 576,
+    md: 768,
+    lg: 1024,
+    xl: 1600,
+    xxl: 1920
+);
+
+$adaptive-h1-font-sizes: (
+    xs: 46,
+    sm: 72,
+    md: 100,
+    lg: 98,
+    xl: 156,
+    xxl: 190
+);
+
+$adaptive-h2-font-sizes: (
+    xs: 40,
+    sm: 54,
+    md: 70,
+    lg: 70,
+    xl: 133,
+    xxl: 160
+);

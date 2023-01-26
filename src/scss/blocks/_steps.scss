@@ -1,0 +1,52 @@
+.steps {
+
+    &-wrapper {
+        counter-reset: step;
+
+        @include media-breakpoint-up('lg') {
+            gap: 2.5rem;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &-step {
+        width: 240px;
+
+        @include media-breakpoint-up('md') {
+            width: 260px;
+        }
+
+        @include media-breakpoint-up('lg') {
+            width: auto;
+        }
+
+        &__num {
+            counter-increment: step;
+            --size: 6.25rem;
+            height: var(--size);
+            width: var(--size);
+            line-height: var(--size);
+            text-align: center;
+            border: 1px solid var(--text);
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+
+            @include media-breakpoint-up('xl') {
+                --size: 8.125rem;
+                margin-bottom: 2rem;
+            }
+
+            &:before {
+                content: counter(step);
+            }
+        }
+
+        h4 {
+            margin: 0 0 .75rem;
+
+            @include media-breakpoint-up('xl') {
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+}

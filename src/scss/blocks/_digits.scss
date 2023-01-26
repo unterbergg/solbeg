@@ -1,0 +1,78 @@
+.digits {
+    position: relative;
+
+    &-grid {
+        position: absolute;
+        left: 0;
+        width: 100%;
+
+        &:before,
+        &:after {
+            position: absolute;
+            content: '';
+            left: -2px;
+            right: -2px;
+            top: 0;
+            height: 100%;
+        }
+
+        &,
+        &:before,
+        &:after {
+            border-left: 2px solid var(--text);
+            border-right: 2px solid var(--text);
+            @include transition(border-left-color, border-right-color);
+        }
+
+        @include media-breakpoint-up('md') {
+            height: 1rem;
+
+            &:before {
+                right: 40%;
+            }
+        }
+
+        @include media-breakpoint-up('lg') {
+
+            &:before {
+                left: 25%;
+                right: 50%;
+            }
+
+            &:after {
+                left: 75%;
+            }
+        }
+    }
+
+    &-grid__top {
+        top: calc(var(--block-padding) * -1);
+    }
+
+    &-grid__bottom {
+        bottom: calc(var(--block-padding) * -1);
+    }
+
+    .swiper {
+
+        &-wrapper {
+            row-gap: 3.25rem;
+        }
+
+        &-slide {
+            width: auto;
+
+            @include media-breakpoint-up('md') {
+                width: 60%;
+
+                &:nth-child(even) {
+                    width: 40%;
+                }
+            }
+
+            @include media-breakpoint-up('lg') {
+                width: 25% !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,164 @@
+.video {
+    position: relative;
+
+    video {
+        width: 100%;
+    }
+
+    &-play {
+        cursor: pointer;
+        visibility: visible;
+        opacity: 1;
+        border: none;
+        padding: 0;
+        background: transparent;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+        color: inherit;
+        text-decoration: none;
+        @include transition(visibility, opacity);
+
+        &:before {
+            content: '';
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #{rgba(#000000, .15)};
+            z-index: 1;
+            @include transition(visibility, opacity);
+        }
+
+        &.hidden {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        div {
+            visibility: visible;
+            opacity: 1;
+            @include transition(visibility, opacity);
+        }
+
+        div,
+        figure {
+            height: 100%;
+            width: 100%;
+        }
+
+        span {
+            --size: 5rem;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: var(--size);
+            width: var(--size);
+            margin-left: calc(var(--size) / 2 * -1);
+            margin-top: calc(var(--size) / 2 * -1);
+            @include transition(transform);
+            z-index: 2;
+
+            @include media-breakpoint-up('md') {
+                --size: 7.5rem;
+            }
+
+            @include media-breakpoint-up('xl') {
+                --size: 12.5rem;
+            }
+
+            &:before,
+            &:after {
+                --size: 20px;
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: var(--size);
+                height: var(--size);
+                background-color: white;
+                transform: translate(-50%, -50%);
+                transition: clip-path .5s;
+
+                @include media-breakpoint-up('md') {
+                    --size: 32px;
+                }
+
+                @include media-breakpoint-up('xl') {
+                    --size: 40px;
+                }
+            }
+
+            &:before {
+                clip-path: polygon(32.5% 2.5%, 60% 27%, 87.5% 50%, 60% 70%);
+            }
+
+            &:after {
+                clip-path: polygon(32.5% 2.5%, 60% 50%, 60% 70%, 32.5% 87.5%);
+            }
+
+            i {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
+                border: 2px solid white;
+                opacity: .5;
+            }
+        }
+
+        img {
+            @include cover();
+        }
+
+        &:hover {
+
+            &:before {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            div {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+    }
+
+    &.playing &-play {
+
+        // span {
+
+        //     &:before {
+        //         clip-path: polygon(60% 10%, 67.5% 10%, 67.5% 90%, 60% 90%);
+        //     }
+
+        //     &:after {
+        //         clip-path: polygon(32.5% 10%, 40% 10%, 40% 90%, 32.5% 90%);
+        //     }
+        // }
+
+        img {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+
+    &.playing:hover &-play.hidden {
+        visibility: visible;
+        // opacity: 1;
+        opacity: 0; // Hide pause button
+
+        img {
+            opacity: 0 !important;
+        }
+    }
+}

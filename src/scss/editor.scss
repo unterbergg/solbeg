@@ -1,0 +1,100 @@
+/* Started with "~" import from node_modules */
+@import '~swiper/css';
+
+@import "variables";
+@import "grid/grid";
+
+@import "mixins/cover";
+@import "mixins/transition";
+@import "mixins/adaptive-font-size";
+
+@import "colors";
+
+body {
+    font-family: 'Manrope', sans-serif;
+    scroll-behavior: smooth;
+    background-color: var(--bg);
+    box-sizing: border-box;
+    font-size: calc($rem * 1px);
+    color: var(--text);
+    padding-left: 0;
+    padding-right: 0;
+    @include transition(background-color, color);
+}
+
+[class*="container"] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.editor-post-title {
+    width: 100%;
+    max-width: 2120px;
+    padding-left: var(--container-gutter, 1rem);
+    padding-right: var(--container-gutter, 1rem);
+}
+
+.is-root-container {
+
+    @import "content";
+    @import "buttons";
+    @import "swiper";
+    @import "block";
+
+    hr {
+        border-color: var(--text);
+        border-width: 1px;
+        margin: 0;
+        @include transition(border-color);
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    figure {
+        margin: 0;
+    }
+
+    .wp-block {
+        max-width: initial;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    // Intro header top fix (double containers with simular classes)
+    .intro-header-start {
+
+        .intro-header-start {
+            position: static;
+            transform: none;
+        }
+    }
+
+    // Intro header bottom fix (double containers with simular classes)
+    .intro-header-bottom {
+
+        .intro-header-bottom {
+            position: static;
+            transform: none;
+        }
+    }
+
+    & > .wp-block {
+        width: 100%;
+        max-width: 2120px;
+        padding-left: var(--container-gutter, 1rem);
+        padding-right: var(--container-gutter, 1rem);
+
+        .block {
+            margin-top: 24px;
+            margin-bottom: 24px;
+            border: 1px dashed transparent;
+
+            &:hover {
+                border-color: rgba(0, 0, 0, .5);
+            }
+        }
+    }
+}

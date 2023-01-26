@@ -1,0 +1,56 @@
+.history {
+    text-align: center;
+
+    &-years {
+        position: relative;
+        left: 50%;
+        width: 100%;
+        font-family: 'Coolvetica', sans-serif;
+        font-weight: normal;
+        font-size: 2.125rem;
+        line-height: 5.25rem;
+        margin-bottom: 1rem;
+        transform: translate(-50%, 0);
+
+        @include media-breakpoint-up('sm') {
+            margin-bottom: 1.25rem;
+        }
+
+        @include media-breakpoint-up('xl') {
+            font-size: 3.125rem;
+            line-height: 10rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .swiper {
+
+            &-slide {
+                width: 140px;
+                color: var(--text);
+                cursor: pointer;
+                @include transition(color, font-size);
+
+                &:hover {
+                    color: var(--red-hover);
+                }
+
+                @include media-breakpoint-up('sm') {
+                    width: 180px;
+                }
+
+                @include media-breakpoint-up('xl') {
+                    width: 320px;
+                }
+
+                &.current {
+                    font-size: 4.375rem;
+                    color: var(--red);
+
+                    @include media-breakpoint-up('xl') {
+                        font-size: 10rem;
+                    }
+                }
+            }
+        }
+    }
+}
